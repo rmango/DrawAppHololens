@@ -32,6 +32,17 @@ button_widget.pack()
 button_widget2 = Button(main, text="Save Image", command=saveImage)
 button_widget2.pack()
 
+depthLabel = Label(main, text="Blink to change net depth: ")
+depthLabel.config(background='white')
+depthLabel.pack()
+
+numVar = IntVar()
+var_entry = Entry(main,text='number',textvariable=numVar)
+var_entry.pack()
+numVar.set(10)
+netDepth = var_entry.get()
+print(netDepth)
+
 c = Canvas(main, width=500, height=500)
 c.config(background='white')
 c.pack()
