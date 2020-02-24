@@ -6,10 +6,10 @@ import os # for looping over images, counting num files in dir
 # NOTE: to work, must have directory called generated_files full of
 # pngs named in the scheme "generated<index>.png"
 
-directory = 'generated_images'
+directory = 'r4_generated'
 fileIndex = 0
 numFiles = len(os.listdir(directory))
-waitTime = 300
+waitTime = 700
 
 # todo - called on generate button click
 def generateCallback():
@@ -43,13 +43,13 @@ numVar.set(10)
 netDepth = var_entry.get()
 print(netDepth)
 
-c = Canvas(main, width=500, height=500)
+c = Canvas(main, width=200, height=200)
 c.config(background='white')
 c.pack()
 
 # write first image to canvas
-picture = PhotoImage(file=directory + "/" + "generated" + str(fileIndex) + ".png")
-picture2 = c.create_image(250,250,image=picture)
+picture = PhotoImage(file=directory + "/" + "r4_generated" + str(fileIndex) + ".png")
+picture2 = c.create_image(100,100,image=picture)
 fileIndex += 1
 
 # function that loops through all files in directory
@@ -58,7 +58,7 @@ def nextImg():
     global fileIndex
     if(fileIndex < numFiles):
         global picture3
-        picture3 = PhotoImage(file=directory + "/" + "generated" + str(fileIndex) + ".png")
+        picture3 = PhotoImage(file=directory + "/" + "r4_generated" + str(fileIndex) + ".png")
         c.itemconfigure(picture2, image = picture3) # update canvas with new image
         fileIndex += 1
         global waitTime
