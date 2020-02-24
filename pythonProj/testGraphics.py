@@ -7,6 +7,7 @@ import os # for looping over images, counting num files in dir
 # pngs named in the scheme "generated<index>.png"
 
 directory = 'r4_generated'
+fileName = 'r4_generated'
 fileIndex = 0
 numFiles = len(os.listdir(directory))
 waitTime = 700
@@ -48,7 +49,7 @@ c.config(background='white')
 c.pack()
 
 # write first image to canvas
-picture = PhotoImage(file=directory + "/" + "r4_generated" + str(fileIndex) + ".png")
+picture = PhotoImage(file=directory + "/" + fileName + str(fileIndex) + ".png")
 picture2 = c.create_image(100,100,image=picture)
 fileIndex += 1
 
@@ -58,7 +59,7 @@ def nextImg():
     global fileIndex
     if(fileIndex < numFiles):
         global picture3
-        picture3 = PhotoImage(file=directory + "/" + "r4_generated" + str(fileIndex) + ".png")
+        picture3 = PhotoImage(file=directory + "/" + fileName + str(fileIndex) + ".png")
         c.itemconfigure(picture2, image = picture3) # update canvas with new image
         fileIndex += 1
         global waitTime
